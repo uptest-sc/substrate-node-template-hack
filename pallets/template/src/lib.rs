@@ -32,8 +32,8 @@ pub mod pallet {
 			print(printme.as_str());
 // get the value of Something2 and print it, define the type
 			let second: Option<u64> = Something2::<T>::get();
-			let to_print: u64 = second;//.unwrap(); // change me
-			let sp = format!("second is: {:?}", to_print);
+//			let to_print: u64 = second;//.unwrap(); // change me
+			let sp = format!("second is: {:?}", second);
 			print(sp.as_str());
 			Weight::from_parts(2175, 0)
 		}
