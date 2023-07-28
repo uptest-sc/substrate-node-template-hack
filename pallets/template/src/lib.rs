@@ -18,7 +18,8 @@ mod benchmarking;
 pub mod pallet {
 	use frame_support::pallet_prelude::*;
 	use frame_system::pallet_prelude::*;
-
+	use frame_support::sp_runtime::print;
+	use scale_info::prelude::format;
 
 	#[pallet::pallet]
 	pub struct Pallet<T>(_);
