@@ -30,8 +30,8 @@ pub mod pallet {
 			let printme = format!("on_initialize(#{:?})", n);
 			print(printme.as_str());
 // get the value of Something2 and print it, define the type
-			let second: Option<bool> = Something2::<T>::get();
-			let to_print: bool = second.unwrap();
+			let second: Option<u64> = Something2::<T>::get();
+			let to_print: u64 = second;//.unwrap(); // change me
 			let sp = format!("second is: {:?}", to_print);
 			print(sp.as_str());
 			Weight::from_parts(2175, 0)
@@ -69,7 +69,7 @@ pub mod pallet {
 	// tutorial 1 Storage value to focus on
 	#[pallet::storage]
 	#[pallet::getter(fn something2)]
-	pub type Something2<T> = StorageValue<_, bool>;
+	pub type Something2<T> = StorageValue<_, u64>;
 
 
 	#[pallet::storage]
@@ -116,7 +116,7 @@ pub mod pallet {
 
 		#[pallet::call_index(2)]
 		#[pallet::weight(10_000 + T::DbWeight::get().writes(1).ref_time())]
-		pub fn do_something_second(origin: OriginFor<T>, something2: bool) -> DispatchResult {
+		pub fn do_something_second(origin: OriginFor<T>, something2: u64) -> DispatchResult {
 			let who = ensure_signed(origin)?;
 
 			// Update storage.
